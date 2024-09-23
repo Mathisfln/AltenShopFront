@@ -1,0 +1,17 @@
+<h1 class="text-center">Votre panier</h1>
+
+<div class="font-medium text-secondary text-sm"> Articles dans le panier : {{ itemCount }}</div>
+<div class="font-medium text-secondary text-sm"> Coût total : {{ totalCost }} €</div>
+
+<div *ngIf="cart && cart.items.length > 0;">
+    <ul class="list-group">
+      <li *ngFor="let item of cart.items" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ item.name }}</strong> <br>
+          Prix : {{ item.price }} € <br>
+          <p-button label="Supprimer" severity="danger" (onClick)="removeProductToCart(item)" />
+        </div>
+      </li>
+    </ul>
+
+</div>
